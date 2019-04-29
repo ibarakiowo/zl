@@ -12,6 +12,7 @@ export default {
     }
   },
   created () {
+    console.log('start')
     console.log(this.$axios)
   }
 }
