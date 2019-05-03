@@ -5,7 +5,7 @@ const createAxiosInstance = option => {
   const instance = axios.create(option)
   // 请求拦截器
   instance.interceptors.request.use(config => {
-    config.headers['token'] = 'login:1556550170699'
+    // config.headers['token'] = 'login:1556550170699'
     // console.log('http -> request: config', config)
     return config
   }, error => {
