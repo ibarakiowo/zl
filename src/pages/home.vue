@@ -1,42 +1,69 @@
 <template>
-  <div>
-    <div>用户名：<input type="text" v-model="loginParams.username"></div>
-    <div>密码：<input type="password" v-model="loginParams.password"></div>
-    <button @click="handleLogin">登录</button>
-    <button @click="fetchList">获取饭店列表</button>
+  <div class="home-container">
+    <div class="head-info">
+      <img :src="logo" alt="好好吃饭" @click="backToHome">
+    </div>
+    <div class="body-info">
+      <ul class="nav">
+        <li><router-link to="/home/user">用户管理 ></router-link></li>
+      </ul>
+      <div class="main">
+        <router-view></router-view>
+        <div class="home-view">首页内容</div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import api from '@/api/apitest'
-
+import logo from '@/assets/images/logo1.png'
 export default {
   data () {
     return {
-      loginParams: {
-        username: '',
-        password: ''
-      },
-      tempToken: ''
+      logo
     }
   },
   created () {
+    console.log(this.$route)
   },
   methods: {
-    handleLogin () {
-      api.testApi(this.loginParams).then(res => {
-        alert('登录成功')
-        this.tempToken = res.token
-      })
-    },
-    fetchList () {
-      api.testApi2({}).then(res => {
-        console.log(res)
-      })
+    // 点击logo回到首页
+    backToHome () {
+      this.$router.push('/home')
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+  .home-container {
+    width: 100%;
+    height: 100%;
+    .head-info {
+      height: 50px;
+      background: #eee;
+      color: #fff;
+      img {
+        height: 100%;
+      }
+    }
+    .body-info {
+      height: calc(100vh - 50px);
+      display: flex;
+      .nav {
+        padding: 10px 0;
+        width: 200px;
+        background: #24292e;
+        li {
+          padding: 10px;
+          a {
+            color: hsla(0,0%,100%,.7);
+          }
+        }
+      }
+      .main {
+        flex: 1;
+      }
+    }
+  }
 </style>

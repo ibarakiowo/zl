@@ -1,11 +1,12 @@
 import axios from 'axios'
 
-// 创建axios实力
+// 创建axios实例
 const createAxiosInstance = option => {
   const instance = axios.create(option)
   // 请求拦截器
   instance.interceptors.request.use(config => {
-    // config.headers['token'] = 'login:1556550170699'
+    // 设置token
+    if (localStorage.getItem('token')) config.headers['token'] = localStorage.getItem('token')
     // console.log('http -> request: config', config)
     return config
   }, error => {
@@ -19,7 +20,7 @@ const createAxiosInstance = option => {
       return response.data.data
     } else {
       alert(response.data.head.errMsg)
-      return {}
+      return null
     }
   }, error => {
     // console.log('http -> response: error', error)
