@@ -9,7 +9,7 @@
       </ul>
       <div class="main">
         <router-view></router-view>
-        <div class="home-view">首页内容</div>
+        <!-- <div class="home-view">首页内容</div> -->
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@ export default {
     }
   },
   created () {
-    console.log(this.$route)
+    // console.log(this.$route)
   },
   methods: {
     // 点击logo回到首页

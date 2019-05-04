@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '@/router'
 
 // 创建axios实例
 const createAxiosInstance = option => {
@@ -24,6 +25,11 @@ const createAxiosInstance = option => {
     }
   }, error => {
     // console.log('http -> response: error', error)
+    if (String(error) === 'Error: Request failed with status code 401') {
+      alert('您的登录时间过长或长时间没有操作，请重新登录！')
+      localStorage.clear()
+      router.push('/login')
+    }
     return Promise.reject(error)
   })
   return instance

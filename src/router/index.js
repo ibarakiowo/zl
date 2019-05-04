@@ -38,9 +38,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  // console.log('to', to)
-  // 设置title标题
-  document.title = to.meta.title
   // 判断是否登录
   if (to.name === 'login') {
     next()
@@ -52,6 +49,8 @@ router.beforeEach((to, from, next) => {
       next('/login')
     }
   }
+  // 设置title标题
+  document.title = to.meta.title
 })
 
 export default router
