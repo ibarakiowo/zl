@@ -1,5 +1,5 @@
 import { axios } from './api'
-const url = '/login'
+const url = '/api/login'
 
 const loginIn = params => {
   return axios.post(`${url}/loginIn`, params)

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/pages/login'
 import Home from '@/pages/home'
 import User from '@/pages/user'
+import Restaurant from '@/pages/restaurant'
 
 Vue.use(Router)
 
@@ -26,6 +27,14 @@ const router = new Router({
           component: User,
           meta: {
             title: '用户管理'
+          }
+        },
+        {
+          path: 'restaurant',
+          name: 'restaurant',
+          component: Restaurant,
+          meta: {
+            title: '饭店管理'
           }
         }
       ]

@@ -15,6 +15,10 @@
             <i class="el-icon-menu"></i>
             <span slot="title">用户管理</span>
           </el-menu-item>
+          <el-menu-item index="/home/restaurant">
+            <i class="el-icon-menu"></i>
+            <span slot="title">饭店管理</span>
+          </el-menu-item>
           <el-menu-item index="/404">
             <i class="el-icon-menu"></i>
             <span slot="title">其他管理</span>

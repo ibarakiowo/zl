@@ -18,7 +18,15 @@ const createAxiosInstance = option => {
   instance.interceptors.response.use(response => {
     // console.log('http -> response: response', response)
     if (response.data.head.errCode === 0) {
-      return response.data.data
+      if (response.data.data.hasOwnProperty('totalElements') && response.data.data.hasOwnProperty('totalPages')) { // 带有分页
+        return {
+          content: response.data.data.content,
+          totalElements: response.data.data.totalElements,
+          totalPages: response.data.data.totalPages
+        }
+      } else { // 非分页
+        return response.data.data
+      }
     } else {
       alert(response.data.head.errMsg)
       return null
