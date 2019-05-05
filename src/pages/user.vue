@@ -1,20 +1,34 @@
 <template>
   <div class="user-container">
-    <div>用户列表</div>
-    <table>
-      <thead>
-        <th>名称</th>
-        <th>类型</th>
-        <th>状态</th>
-      </thead>
-      <tbody>
-        <tr v-for="(item, index) in listData" :key="index">
-          <td>{{item.username}}</td>
-          <td>{{item.type}}</td>
-          <td>{{item.state}}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div>
+      <el-table
+        :data="listData"
+        border>
+        <el-table-column
+          prop="username"
+          label="名称">
+        </el-table-column>
+        <el-table-column
+          label="类型">
+          <template slot-scope="scope">
+            {{scope.row.type == 1 ? '超级管理员' : '普通用户'}}
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="状态">
+          <template slot-scope="scope">
+            {{scope.row.state == 1 ? '正常' : '已冻结'}}
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="操作">
+          <template slot-scope="scope">
+            <el-button type="text" size="small" :disabled="scope.row.state == 1" @click="activeUser(scope.row)">激活</el-button>
+            <el-button type="text" size="small" :disabled="scope.row.state == 2" @click="freezeUser(scope.row)">冻结</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
   </div>
 </template>
 
@@ -31,12 +45,21 @@ export default {
   },
   methods: {
     // 请求列表数据
-    fetchList () {
-      api.list({}).then(res => {
-        if (res) {
-          this.listData = res
-        }
-      })
+    async fetchList () {
+      const res = await api.list({})
+      if (res) {
+        this.listData = res
+      }
+    },
+    // 激活用户
+    async activeUser (row) {
+      const res = await api.active(row.userId)
+      if (res) this.fetchList()
+    },
+    // 冻结用户
+    async freezeUser (row) {
+      const res = await api.freeze(row.userId)
+      if (res) this.fetchList()
     }
   }
 }
