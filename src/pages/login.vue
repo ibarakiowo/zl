@@ -3,8 +3,8 @@
     <div class="login-form">
       <h1>用户<img :src="logo">登录</h1>
       <ul>
-        <li><label>账号：</label><input type="text" v-model="loginParams.username"></li>
-        <li><label>密码：</label><input type="password" v-model="loginParams.password"></li>
+        <li><label>账号：</label><input type="text" v-model="loginParams.username" @keyup.enter="handleLogin"></li>
+        <li><label>密码：</label><input type="password" v-model="loginParams.password" @keyup.enter="handleLogin"></li>
       </ul>
       <div><button @click="handleLogin">登录</button></div>
     </div>
