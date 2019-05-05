@@ -1,18 +1,32 @@
 <template>
-  <div class="home-container">
-    <div class="head-info">
+  <el-container class="home-container">
+    <el-header class="head-info">
       <img :src="logo" alt="好好吃饭" @click="backToHome">
-    </div>
-    <div class="body-info">
-      <ul class="nav">
-        <li><router-link to="/home/user">用户管理 ></router-link></li>
-      </ul>
-      <div class="main">
-        <router-view></router-view>
-        <!-- <div class="home-view">首页内容</div> -->
-      </div>
-    </div>
-  </div>
+    </el-header>
+    <el-container class="body-info">
+      <el-aside class="nav">
+        <el-menu
+          :default-active="currentNav"
+          @select="routerToPage"
+          background-color="#24292e"
+          text-color="#fff"
+          active-text-color="#ffd04b">
+          <el-menu-item index="/home/user">
+            <i class="el-icon-menu"></i>
+            <span slot="title">用户管理</span>
+          </el-menu-item>
+          <el-menu-item index="/404">
+            <i class="el-icon-menu"></i>
+            <span slot="title">其他管理</span>
+          </el-menu-item>
+        </el-menu>
+      </el-aside>
+      <el-main class="main">
+        <div class="home-view" v-if="currentNav == '/home'">首页内容</div>
+        <router-view v-else></router-view>
+      </el-main>
+    </el-container>
+  </el-container>
 </template>
 
 <script>
@@ -24,12 +38,21 @@ export default {
     }
   },
   created () {
-    // console.log(this.$route)
+  },
+  computed: {
+    // 判断当前路由所处模块
+    currentNav () {
+      return this.$route.path
+    }
   },
   methods: {
     // 点击logo回到首页
     backToHome () {
       this.$router.push('/home')
+    },
+    // 菜单跳转
+    routerToPage (path) {
+      this.$router.push({path})
     }
   }
 }
@@ -37,32 +60,24 @@ export default {
 
 <style lang="scss" scoped>
   .home-container {
-    width: 100%;
     height: 100%;
     .head-info {
-      height: 50px;
       background: #eee;
       color: #fff;
+      padding: 0;
       img {
         height: 100%;
       }
     }
     .body-info {
-      height: calc(100vh - 50px);
-      display: flex;
       .nav {
-        padding: 10px 0;
-        width: 200px;
         background: #24292e;
-        li {
-          padding: 10px;
+        .el-menu {
+          border-right: none;
           a {
             color: hsla(0,0%,100%,.7);
           }
         }
-      }
-      .main {
-        flex: 1;
       }
     }
   }
