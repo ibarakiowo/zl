@@ -10,7 +10,6 @@ export default {
 }
 </script>
 
-<style src="@/assets/css/base.css"></style>
 <style lang="scss" scoped>
   #app {
     height: calc(100vh);

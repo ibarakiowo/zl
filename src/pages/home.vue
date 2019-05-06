@@ -88,9 +88,9 @@ export default {
       .nav {
         background: #24292e;
         .nav-unfold {
-          height: 30px;
-          line-height: 30px;
-          font-size: 24px;
+          height: $nav-nh;
+          line-height: $nav-nh;
+          font-size: $nav-fs;
           text-align: right;
           color: #fff;
           padding-right: 4px;
@@ -107,11 +107,11 @@ export default {
           border-right: none;
         }
         .el-menu-unfold {
-          width: 200px;
+          width: $nav-nw;
         }
       }
       .main {
-        padding: 10px;
+        padding: $com-bp;
       }
     }
   }

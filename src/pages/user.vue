@@ -1,5 +1,6 @@
 <template>
   <div class="user-container">
+    <zl-query></zl-query>
     <div>
       <el-button>新建</el-button>
     </div>
