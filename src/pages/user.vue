@@ -1,6 +1,9 @@
 <template>
   <div class="user-container">
     <div>
+      <el-button>新建</el-button>
+    </div>
+    <div>
       <el-table
         :data="listData"
         border>
