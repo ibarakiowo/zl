@@ -6,7 +6,7 @@
       :span="item.span || 4">
       <div class="query-block">
         <label v-if="item.label">{{`${item.label}：`}}</label>
-        <div><compack :comp="item.comp"></compack></div>
+        <div><compack :comp="item.comp" @query="handleQuery"></compack></div>
       </div>
     </el-col>
   </el-row>
@@ -21,6 +21,22 @@ export default {
       default () {
         return []
       }
+    }
+  },
+  methods: {
+    handleQuery () {
+      this.$emit('query', this.filterData(this.queryData))
+    },
+    filterData (list) {
+      let obj = {}
+      list.forEach(item => {
+        if (item.key && item.comp.props && item.comp.props.value) {
+          obj[item.key] = item.comp.props.id || item.comp.props.value
+        } else if (item.key) {
+          obj[item.key] = ''
+        }
+      })
+      return obj
     }
   }
 }

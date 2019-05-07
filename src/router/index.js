@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Login from '@/pages/login'
 import Home from '@/pages/home'
 import User from '@/pages/user'
-import Restaurant from '@/pages/restaurant'
+import Restaurant from '@/pages/restaurant/restaurant'
 
 Vue.use(Router)
 

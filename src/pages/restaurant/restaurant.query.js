@@ -1,11 +1,12 @@
 export default [
   {
-    label: '用户名',
+    label: '饭店名称',
+    key: 'restaurantName',
     span: 6,
     comp: {
       name: 'el-input',
       attrs: {
-        placeholder: '请输入用户名'
+        placeholder: '请输入饭店名称'
       },
       props: {
         value: '',
@@ -15,26 +16,28 @@ export default [
   },
   {
     label: '状态',
+    key: 'state',
     span: 6,
     comp: {
       name: 'el-select',
+      attrs: {
+        placeholder: '请选择饭店状态'
+      },
       props: {
+        id: '',
         value: '',
         clearable: true
       },
-      child: {
-        name: 'el-option',
-        option: [
-          {
-            id: 1,
-            value: '正常'
-          },
-          {
-            id: 2,
-            value: '已冻结'
-          }
-        ]
-      }
+      option: [
+        {
+          id: 1,
+          value: '正常'
+        },
+        {
+          id: 2,
+          value: '已冻结'
+        }
+      ]
     }
   },
   {
@@ -43,15 +46,6 @@ export default [
       name: 'el-button',
       domProps: {
         innerHTML: '查询'
-      }
-    }
-  },
-  {
-    span: 6,
-    comp: {
-      name: 'el-button',
-      domProps: {
-        innerHTML: '新建'
       }
     }
   }

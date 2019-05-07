@@ -1,8 +1,7 @@
-import Utils from '@/utils'
+import Http from '@/utils/http'
+import { BASE_URL } from '@/utils/apiConfig'
 
-const axios = Utils.Http.createAxiosInstance({
-  baseURL: Utils.ApiConfig.BASE_URL,
+export const axios = Http.createAxiosInstance({
+  baseURL: BASE_URL,
   withCredentials: true
 })
-
-export { axios }

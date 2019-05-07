@@ -1,5 +1,9 @@
 <template>
   <div class="user-container">
+    <zl-query
+      :query-data="queryData"
+      @query="queryList">
+    </zl-query>
     <div>
       <el-table
         :data="listData.content"
@@ -50,9 +54,11 @@
 
 <script>
 import api from '@/api/api-restaurant'
+import queryData from './restaurant.query'
 export default {
   data () {
     return {
+      queryData,
       params: {
         currPage: 1,
         pageSize: 5,
@@ -66,6 +72,12 @@ export default {
     this.fetchList()
   },
   methods: {
+    // 查询事件
+    queryList (val) {
+      console.log(val)
+      Object.assign(this.params, val)
+      this.fetchList()
+    },
     // 请求列表数据
     async fetchList () {
       const res = await api.list(this.params)

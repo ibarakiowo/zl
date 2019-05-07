@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       logo,
-      collapseNav: false
+      collapseNav: true
     }
   },
   computed: {
