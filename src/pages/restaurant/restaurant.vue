@@ -54,7 +54,7 @@
 
 <script>
 import api from '@/api/api-restaurant'
-import queryData from './restaurant.query'
+import queryData from './restaurant-query.js'
 export default {
   data () {
     return {
@@ -74,7 +74,6 @@ export default {
   methods: {
     // 查询事件
     queryList (val) {
-      console.log(val)
       Object.assign(this.params, val)
       this.fetchList()
     },

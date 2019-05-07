@@ -15,17 +15,14 @@ export default [
     }
   },
   {
-    label: '状态',
+    label: '饭店状态',
     key: 'state',
     span: 6,
     comp: {
       name: 'el-select',
-      attrs: {
-        placeholder: '请选择饭店状态'
-      },
       props: {
-        id: '',
         value: '',
+        placeholder: '请选择饭店状态',
         clearable: true
       },
       option: [
@@ -44,6 +41,9 @@ export default [
     span: 6,
     comp: {
       name: 'el-button',
+      props: {
+        type: 'primary'
+      },
       domProps: {
         innerHTML: '查询'
       }

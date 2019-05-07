@@ -2,8 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/pages/login'
 import Home from '@/pages/home'
-import User from '@/pages/user'
-import Restaurant from '@/pages/restaurant/restaurant'
+import User from '@/pages/User/user'
+import Restaurant from '@/pages/Restaurant/restaurant'
 
 Vue.use(Router)
 

@@ -30,6 +30,9 @@ export default Vue.component('compack', {
       }
     }
   },
+  created () {
+    if (this.comp.props) this.comp.props.value = ''
+  },
   methods: {
     emitEvent: debounce(function () {
       this.$emit('query')
