@@ -1,9 +1,8 @@
 <template>
   <div class="user-container">
-    <zl-query></zl-query>
-    <div>
-      <el-button>新建</el-button>
-    </div>
+    <zl-query
+      :query-data="queryData">
+    </zl-query>
     <div>
       <el-table
         :data="listData"
@@ -38,9 +37,11 @@
 
 <script>
 import api from '@/api/api-user'
+import queryData from './user.query'
 export default {
   data () {
     return {
+      queryData,
       listData: []
     }
   },
