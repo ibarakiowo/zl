@@ -1,8 +1,9 @@
 /**
- * 定义公共样式变量(前缀: com)
+ * 定义全局样式变量(前缀: com)
  */
 
-@import './variables.nav.scss'; // 导航样式变量
+@import './variables.nav.scss'; // 菜单导航样式变量
+@import './variables.main.scss'; // 主窗口样式变量
 
 // ------------------------------------ Start ---------------------------------------
 

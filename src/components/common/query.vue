@@ -1,13 +1,20 @@
 <template>
-  <el-row class="list-query" :gutter="20">
-    <el-col
-      v-for="(item, index) in queryData"
-      :key="index"
-      :span="item.span || 4">
-      <div class="query-block">
-        <label v-if="item.label">{{`${item.label}：`}}</label>
-        <div><compack :comp="item.comp" @query="handleQuery"></compack></div>
-      </div>
+  <el-row class="list-query">
+    <el-col :span="20" class="query-params">
+      <el-row :gutter="20">
+        <el-col
+          v-for="(item, index) in queryData"
+          :key="index"
+          :span="item.span || 4">
+          <div class="query-block">
+            <label v-if="item.label">{{`${item.label}：`}}</label>
+            <div><compack :comp="item.comp" @query="handleQuery"></compack></div>
+          </div>
+        </el-col>
+      </el-row>
+    </el-col>
+    <el-col :span="4" class="query-buttons">
+      <slot></slot>
     </el-col>
   </el-row>
 </template>
@@ -45,9 +52,15 @@ export default {
 <style lang="scss" scoped>
   .list-query {
     margin-bottom: $com-bp;
-    .query-block {
-      display: flex;
-      align-items: center;
+    .query-params {
+      min-height: $mq-nw;
+      .query-block {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .query-buttons {
+      text-align: right;
     }
   }
 </style>

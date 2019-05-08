@@ -1,5 +1,8 @@
 <template>
   <div class="user-container">
+    <zl-query>
+      <el-button>新建</el-button>
+    </zl-query>
     <div>
       <el-table
         :data="listData"
