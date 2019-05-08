@@ -6,7 +6,7 @@ export default [
     comp: {
       name: 'el-input',
       attrs: {
-        placeholder: '请输入用户名称'
+        placeholder: '输入用户名称'
       },
       props: {
         value: '',
@@ -21,7 +21,7 @@ export default [
     comp: {
       name: 'el-select',
       attrs: {
-        placeholder: '请选择用户状态'
+        placeholder: '选择用户状态'
       },
       props: {
         id: '',

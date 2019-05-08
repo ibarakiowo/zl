@@ -6,7 +6,7 @@ export default [
     comp: {
       name: 'el-input',
       attrs: {
-        placeholder: '请输入饭店名称'
+        placeholder: '输入饭店名称'
       },
       props: {
         value: '',
@@ -22,7 +22,7 @@ export default [
       name: 'el-select',
       props: {
         value: '',
-        placeholder: '请选择饭店状态',
+        placeholder: '选择饭店状态',
         clearable: true
       },
       option: [
