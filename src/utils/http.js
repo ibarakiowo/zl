@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '@/router'
 
 // 创建axios实例
-const createAxiosInstance = option => {
+export const createAxiosInstance = option => {
   const instance = axios.create(option)
   // 请求拦截器
   instance.interceptors.request.use(config => {
@@ -44,9 +44,4 @@ const createAxiosInstance = option => {
 }
 
 // 取消请求
-const cancelToken = axios.CancelToken
-
-export default {
-  createAxiosInstance,
-  cancelToken
-}
+export const cancelToken = axios.CancelToken
