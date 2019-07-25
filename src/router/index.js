@@ -9,6 +9,7 @@ import Restaurant from '@/pages/restaurant/restaurant'
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
